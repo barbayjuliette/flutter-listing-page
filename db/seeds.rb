@@ -16,7 +16,7 @@ puts 'Creating products'
 20.times do
   product = Product.new(name: Faker::Commerce.unique.product_name,
                         description: Faker::TvShows::HowIMetYourMother.quote,
-                        price: rand(0.1..500).round(2),
+                        price: rand(1..500_000),
                         stock: rand(0..1000))
   product.name += ' blue' if product.name.size < 4
   product.name = product.name[0..24] if product.name.size > 25
