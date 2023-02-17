@@ -4,10 +4,10 @@ one:
   name: MyString
   description: MyText
   price: 1.5
-  stock: 1
+  quantity: 1
 
 two:
   name: MyString
   description: MyText
   price: 1.5
-  stock: 1
+  quantity: 1
