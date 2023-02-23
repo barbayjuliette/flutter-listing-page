@@ -7,6 +7,8 @@ class Product extends Equatable {
   final int price;
   final int stock;
 
+  double get formattedPrice => price / 100;
+
   const Product({
     required this.name,
     required this.description,
