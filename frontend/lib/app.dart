@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import './product_listing/presentation/pages/product_listing_page.dart';
+import './product_listing/business/cubit/product_listing_cubit.dart';
 
 class OrganicsApp extends StatelessWidget {
   const OrganicsApp({super.key});
@@ -22,7 +24,10 @@ class OrganicsApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ProductListingPage(),
+      home: BlocProvider(
+        create: (context) => ProductListingCubit(),
+        child: const ProductListingPage(),
+      ),
     );
   }
 }

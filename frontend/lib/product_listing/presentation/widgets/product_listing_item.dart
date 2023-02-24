@@ -32,7 +32,7 @@ class ProductListingItem extends StatelessWidget {
               children: [
                 Text(product.name),
                 const Spacer(),
-                Text('\$${product.formattedPrice}')
+                Text(product.formattedPrice)
               ],
             ),
           ),
