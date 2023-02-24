@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
 
 class Product extends Equatable {
   final String name;
@@ -7,7 +8,13 @@ class Product extends Equatable {
   final int price;
   final int stock;
 
-  double get formattedPrice => price / 100;
+  String get formattedPrice {
+    var f = NumberFormat.simpleCurrency(
+      locale: 'en_Us',
+      decimalDigits: 2,
+    );
+    return f.format(price/100);
+  }
 
   const Product({
     required this.name,

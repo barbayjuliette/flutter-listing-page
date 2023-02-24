@@ -13,7 +13,7 @@ class ProductListingCubit extends Cubit<ProductListingState> {
 
     emit(ProductListingLoading());
 
-    await Future<void>.delayed(const Duration(seconds: 5));
+    await Future<void>.delayed(const Duration(seconds: 1));
     emit(ProductListingLoaded());
   }
 }
