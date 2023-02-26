@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 import '../../model/product.dart';
 
@@ -30,9 +31,24 @@ class ProductListingItem extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Row(
               children: [
-                Text(product.name),
-                const Spacer(),
-                Text(product.formattedPrice)
+                Expanded(
+                  flex: 1,
+                  child: AutoSizeText(
+                    product.name,
+                    textAlign: TextAlign.start,
+                    wrapWords: false,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Flexible(
+                  flex: 0,
+                  child: AutoSizeText(
+                    product.formattedPrice,
+                    textAlign: TextAlign.end,
+                    wrapWords: false,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
             ),
           ),
