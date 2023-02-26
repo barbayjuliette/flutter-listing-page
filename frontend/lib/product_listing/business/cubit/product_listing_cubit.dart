@@ -11,7 +11,7 @@ class ProductListingCubit extends Cubit<ProductListingState> {
 
   ProductListingCubit({required this.repository}) : super(ProductListingInitial());
 
-  loadProducts() async {
+  loadProducts({required String searchTerm}) async {
     if (state is ProductListingLoading) {
       return;
     }
@@ -19,7 +19,7 @@ class ProductListingCubit extends Cubit<ProductListingState> {
     emit(ProductListingLoading());
 
     try {
-      final products = await repository.fetchProducts();
+      final products = await repository.fetchProducts(searchTerm: searchTerm);
       emit(ProductListingLoaded(products: products));
     }
     catch(_) {
