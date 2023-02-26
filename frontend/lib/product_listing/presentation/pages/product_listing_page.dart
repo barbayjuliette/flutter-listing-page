@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/product_listing_grid_view.dart';
-import '../../model/product.dart';
 import '../../business/cubit/product_listing_cubit.dart';
 
 class ProductListingPage extends StatefulWidget {
