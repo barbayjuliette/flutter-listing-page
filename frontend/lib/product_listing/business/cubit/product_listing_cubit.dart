@@ -18,7 +18,12 @@ class ProductListingCubit extends Cubit<ProductListingState> {
 
     emit(ProductListingLoading());
 
-    final products = await repository.fetchProducts();
-    emit(ProductListingLoaded(products: products));
+    try {
+      final products = await repository.fetchProducts();
+      emit(ProductListingLoaded(products: products));
+    }
+    catch(_) {
+      emit(ProductListingFailure());
+    }
   }
 }
