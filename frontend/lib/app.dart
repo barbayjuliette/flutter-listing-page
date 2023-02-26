@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import './product_listing/presentation/pages/product_listing_page.dart';
 import './product_listing/business/cubit/product_listing_cubit.dart';
+import './product_listing/model/product_listing_repository.dart';
 
 class OrganicsApp extends StatelessWidget {
   const OrganicsApp({super.key});
@@ -24,10 +25,15 @@ class OrganicsApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider(
-        create: (context) => ProductListingCubit(),
-        child: const ProductListingPage(),
-      ),
+      home: RepositoryProvider(
+        create: (context) => ProductListingRepository(),
+        child: BlocProvider(
+          create: (context) => ProductListingCubit(
+            repository: context.read<ProductListingRepository>()
+          ),
+          child: const ProductListingPage(),
+        ),
+      )
     );
   }
 }

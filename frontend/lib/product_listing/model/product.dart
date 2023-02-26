@@ -24,6 +24,16 @@ class Product extends Equatable {
     required this.stock,
   });
 
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      name: json["name"],
+      description: json["description"],
+      photo: json["photo"],
+      price: json["price"],
+      stock: json["stock"],
+    );
+  }
+
   @override
   List<Object> get props => [
     name,

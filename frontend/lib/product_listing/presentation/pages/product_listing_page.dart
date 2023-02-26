@@ -30,7 +30,7 @@ class _ProductListingPageState extends State<ProductListingPage> {
         builder: (context, state) {
           if (state is ProductListingLoaded) {
             return ProductListingGridView(
-              products: _buildProductList(20),
+              products: state.products,
             );
           }
           else if (state is ProductListingFailure) {
@@ -46,22 +46,5 @@ class _ProductListingPageState extends State<ProductListingPage> {
         },
       ),
     );
-  }
-
-  List<Product> _buildProductList(int amount) {
-    var products = <Product>[];
-
-    for (var index = 0; index < amount; index++) {
-      final product = Product(
-        name: faker.food.dish(),
-        description: faker.food.cuisine(),
-        price: faker.randomGenerator.integer(50000),
-        photo: 'https://picsum.photos/id/$index/200',
-        stock: faker.randomGenerator.integer(500),
-      );
-      products.add(product);
-    }
-
-    return products;
   }
 }
