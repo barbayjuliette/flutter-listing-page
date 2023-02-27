@@ -76,7 +76,35 @@ class _ProductListingPageState extends State<ProductListingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Organics e-store'),
+        title: Text(
+          'Organics e-store',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        actions: <Widget>[
+          TextButton(
+            style: Theme.of(context).textButtonTheme.style,
+            onPressed: () {},
+            child: const Text("Shop"),
+          ),
+          TextButton(
+            style: Theme.of(context).textButtonTheme.style,
+            onPressed: () {},
+            child: const Text("Favorites"),
+          ),
+          TextButton(
+            style: Theme.of(context).textButtonTheme.style,
+            onPressed: () {},
+            child: const Text("My account"),
+          ),
+          TextButton(
+            style: Theme.of(context).textButtonTheme.style,
+            onPressed: () {},
+            child: const Icon(
+              Icons.shopping_cart,
+              size: 16,
+            ),
+          ),
+        ],
       ),
       body: BlocBuilder<ProductListingCubit, ProductListingState>(
         builder: _buildRootWidget,

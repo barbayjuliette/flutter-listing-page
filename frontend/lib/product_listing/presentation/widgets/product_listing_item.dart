@@ -35,6 +35,7 @@ class ProductListingItem extends StatelessWidget {
                   flex: 1,
                   child: AutoSizeText(
                     product.name,
+                    style: Theme.of(context).textTheme.displayLarge,
                     textAlign: TextAlign.start,
                     wrapWords: false,
                     overflow: TextOverflow.ellipsis,
@@ -44,6 +45,7 @@ class ProductListingItem extends StatelessWidget {
                   flex: 0,
                   child: AutoSizeText(
                     product.formattedPrice,
+                    style: Theme.of(context).textTheme.displayMedium,
                     textAlign: TextAlign.end,
                     wrapWords: false,
                     overflow: TextOverflow.ellipsis,

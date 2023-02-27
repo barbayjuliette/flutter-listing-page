@@ -24,6 +24,28 @@ class OrganicsApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(Colors.white),
+          ),
+        ),
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 16
+          ),
+          displayMedium: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.normal,
+            fontSize: 14
+          ),
+          titleLarge: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        )
       ),
       home: RepositoryProvider(
         create: (context) => ProductListingRepository(),
@@ -33,7 +55,8 @@ class OrganicsApp extends StatelessWidget {
           ),
           child: const ProductListingPage(),
         ),
-      )
+      ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
